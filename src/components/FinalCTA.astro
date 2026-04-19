@@ -1,0 +1,119 @@
+---
+const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
+---
+<section class="final-cta">
+  <div class="container final-inner">
+    <div class="final-badge">
+      <span class="stars">★★★★★</span>
+      <span>5/5 sur Google</span>
+    </div>
+
+    <h2 class="final-title">
+      Prêt(e) à décrocher<br />
+      <span class="title-accent">ton permis ?</span>
+    </h2>
+
+    <p class="final-desc">
+      Un appel gratuit, 10 minutes, et tu sais exactement comment procéder.
+      Nos conseillers sont disponibles maintenant.
+    </p>
+
+    <a
+      href={CALENDLY}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-cta final-btn"
+      onclick="fbq('track', 'Lead')"
+    >
+      Je réserve mon appel gratuit →
+    </a>
+
+    <p class="final-trust">Gratuit · Sans engagement · Réponse rapide</p>
+
+    <div class="final-features">
+      <span>✓ Paiement 3x ou 4x sans frais</span>
+      <span>✓ Éligible CPF (Permis B)</span>
+      <span>✓ Moniteurs certifiés</span>
+      <span>✓ Paris 19ème</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .final-cta {
+    padding: 88px 0;
+    background: var(--cream);
+    border-top: 2px solid var(--blue);
+    text-align: center;
+  }
+
+  .final-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .final-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .final-title {
+    font-size: clamp(2.4rem, 7vw, 4.5rem);
+    color: var(--text);
+    line-height: 1.05;
+  }
+
+  .title-accent {
+    color: var(--blue);
+  }
+
+  .final-desc {
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 520px;
+    line-height: 1.65;
+  }
+
+  .final-btn {
+    font-size: 1.2rem;
+    padding: 18px 52px;
+  }
+
+  .final-trust {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: -4px;
+  }
+
+  .final-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 28px;
+    margin-top: 4px;
+  }
+
+  .final-features span {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  @media (max-width: 768px) {
+    .final-cta {
+      padding: 60px 0;
+    }
+
+    .final-btn {
+      font-size: 1rem;
+      padding: 15px 32px;
+      width: 100%;
+    }
+  }
+</style>

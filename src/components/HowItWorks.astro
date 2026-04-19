@@ -1,0 +1,133 @@
+---
+const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
+
+const steps = [
+  {
+    num: "01",
+    icon: "📅",
+    title: "Tu réserves ton appel",
+    desc: "Choisis un créneau qui te convient sur Calendly. C'est gratuit, sans engagement, et ça prend 2 minutes.",
+  },
+  {
+    num: "02",
+    icon: "📞",
+    title: "On t'appelle",
+    desc: "Un conseiller de France Réussite te rappelle. On répond à tes questions et on trouve ensemble la formule adaptée.",
+  },
+  {
+    num: "03",
+    icon: "✅",
+    title: "Tu t'inscris depuis ton téléphone",
+    desc: "Inscription complète en ligne, paiement sécurisé en 3x ou 4x sans frais. Tu démarres quand tu veux.",
+  },
+];
+---
+<section class="hiw">
+  <div class="container">
+    <span class="section-label">Comment ça se passe ?</span>
+    <h2 class="hiw-title">3 étapes pour avoir ton permis</h2>
+
+    <div class="steps">
+      {steps.map((step, i) => (
+        <div class="step">
+          <div class="step-num">{step.num}</div>
+          <div class="step-icon">{step.icon}</div>
+          <h3 class="step-title">{step.title}</h3>
+          <p class="step-desc">{step.desc}</p>
+          {i < steps.length - 1 && <div class="step-arrow">→</div>}
+        </div>
+      ))}
+    </div>
+
+    <div class="hiw-cta">
+      <a
+        href={CALENDLY}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-cta"
+        onclick="fbq('track', 'Lead')"
+      >
+        Je commence maintenant →
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hiw {
+    padding: 80px 0;
+    background: var(--white);
+  }
+
+  .hiw-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--text);
+    margin-bottom: 52px;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    position: relative;
+  }
+
+  .step {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 32px 28px;
+    text-align: center;
+    position: relative;
+  }
+
+  .step-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    color: var(--blue);
+    opacity: 0.15;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .step-icon {
+    font-size: 2.5rem;
+    margin-bottom: 14px;
+  }
+
+  .step-title {
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .step-desc {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .step-arrow {
+    display: none;
+  }
+
+  .hiw-cta {
+    text-align: center;
+    margin-top: 44px;
+  }
+
+  @media (max-width: 768px) {
+    .hiw {
+      padding: 56px 0;
+    }
+
+    .steps {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .hiw-title {
+      margin-bottom: 36px;
+    }
+  }
+</style>

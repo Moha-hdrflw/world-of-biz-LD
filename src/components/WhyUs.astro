@@ -1,0 +1,167 @@
+---
+const engagements = [
+  {
+    icon: "🚀",
+    title: "Date d'examen rapide",
+    desc: "On optimise ton passage à l'examen. Pas de mois d'attente inutiles — on t'obtient une place dès que tu es prêt(e).",
+  },
+  {
+    icon: "💳",
+    title: "Paiement flexible",
+    desc: "3x ou 4x sans frais via Alma. Éligible CPF pour les demandeurs d'emploi. On s'adapte à ta situation.",
+  },
+  {
+    icon: "👨‍🏫",
+    title: "Moniteurs humains & patients",
+    desc: "Nos moniteurs sont là pour te faire progresser, pas juste pour faire des heures. Bienveillance garantie.",
+  },
+  {
+    icon: "📍",
+    title: "Ancrage local Paris 19",
+    desc: "Une équipe locale, disponible et réactive. Tu connais ton moniteur, il te connaît. C'est ça la différence.",
+  },
+];
+---
+<section class="whyus">
+  <div class="container">
+    <span class="section-label">Pourquoi nous choisir ?</span>
+    <h2 class="whyus-title">Nos engagements</h2>
+
+    <div class="engagements">
+      {engagements.map((e) => (
+        <div class="engagement">
+          <div class="eng-icon">{e.icon}</div>
+          <div class="eng-body">
+            <h3 class="eng-title">{e.title}</h3>
+            <p class="eng-desc">{e.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="whyus-stat-row">
+      <div class="stat">
+        <div class="stat-num">+500</div>
+        <div class="stat-label">élèves accompagnés</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <div class="stat-num">5★</div>
+        <div class="stat-label">sur Google</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <div class="stat-num">Paris&nbsp;19</div>
+        <div class="stat-label">10 Rue Mathis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .whyus {
+    padding: 80px 0;
+    background: var(--white);
+  }
+
+  .whyus-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--text);
+    margin-bottom: 48px;
+  }
+
+  .engagements {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .engagement {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 28px 24px;
+  }
+
+  .eng-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .eng-title {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .eng-desc {
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .whyus-stat-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-top: 52px;
+    background: var(--blue);
+    padding: 32px 20px;
+  }
+
+  .stat {
+    text-align: center;
+    flex: 1;
+    padding: 0 24px;
+  }
+
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2.6rem;
+    color: var(--white);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.75);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+  }
+
+  .stat-sep {
+    width: 1px;
+    height: 48px;
+    background: rgba(255,255,255,0.25);
+  }
+
+  @media (max-width: 768px) {
+    .whyus {
+      padding: 56px 0;
+    }
+
+    .engagements {
+      grid-template-columns: 1fr;
+    }
+
+    .whyus-stat-row {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .stat-sep {
+      width: 48px;
+      height: 1px;
+    }
+  }
+</style>

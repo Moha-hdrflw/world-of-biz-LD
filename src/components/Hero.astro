@@ -1,0 +1,165 @@
+---
+const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
+---
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-badge">
+      <span class="stars">★★★★★</span>
+      <span class="badge-text">Auto-école 5 étoiles — Paris 19ème</span>
+    </div>
+
+    <h1 class="hero-title">
+      Ton permis B<br />
+      <span class="title-accent">dès 799€</span>
+    </h1>
+
+    <p class="hero-sub">
+      Paiement en 3x ou 4x sans frais · Éligible CPF · Moniteurs certifiés
+    </p>
+
+    <p class="hero-desc">
+      Réserve un appel gratuit et sans engagement avec notre équipe.
+      On t'explique tout en 10 minutes et on trouve la formule faite pour toi.
+    </p>
+
+    <a
+      href={CALENDLY}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-cta hero-cta"
+      onclick="fbq('track', 'Lead')"
+    >
+      Je réserve mon appel gratuit →
+    </a>
+
+    <p class="hero-trust">Gratuit · Sans engagement · Réponse en moins de 24h</p>
+
+    <div class="hero-features">
+      <div class="feature">
+        <span class="feature-icon">📅</span>
+        <span>Date d'examen rapide</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">💳</span>
+        <span>Paiement en plusieurs fois</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🎓</span>
+        <span>Moniteurs certifiés</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">📍</span>
+        <span>Paris 19ème</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: var(--cream);
+    padding: 72px 0 64px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 6px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .badge-text {
+    color: var(--text);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    color: var(--text);
+    margin: 0;
+  }
+
+  .title-accent {
+    color: var(--blue);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: 0.03em;
+    background: rgba(30, 95, 168, 0.08);
+    padding: 6px 20px;
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: #444;
+    max-width: 560px;
+    line-height: 1.65;
+  }
+
+  .hero-cta {
+    font-size: 1.15rem;
+    padding: 16px 44px;
+  }
+
+  .hero-trust {
+    font-size: 0.85rem;
+    color: #777;
+    font-weight: 500;
+    margin-top: -4px;
+  }
+
+  .hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 28px;
+    margin-top: 8px;
+  }
+
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .feature-icon {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 48px 0 48px;
+    }
+
+    .hero-cta {
+      font-size: 1rem;
+      padding: 14px 32px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-features {
+      gap: 10px 20px;
+    }
+  }
+</style>

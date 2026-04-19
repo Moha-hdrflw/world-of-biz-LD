@@ -1,0 +1,128 @@
+---
+const faqs = [
+  {
+    q: "L'appel est vraiment gratuit et sans engagement ?",
+    a: "Oui, à 100%. Notre conseiller prend 10 minutes pour comprendre ta situation et t'expliquer les options. Aucune pression, aucun engagement. Tu décides après l'appel si tu souhaites t'inscrire.",
+  },
+  {
+    q: "Comment se passe l'inscription ?",
+    a: "Tout se fait en ligne depuis ton téléphone. Après l'appel, on t'envoie un lien sécurisé pour finaliser l'inscription et le paiement. Pas besoin de te déplacer.",
+  },
+  {
+    q: "Comment fonctionne le paiement en plusieurs fois ?",
+    a: "On passe par Alma, une solution de paiement sécurisée. Tu peux étaler le montant sur 3 ou 4 mensualités, sans frais supplémentaires. C'est disponible sur les formules Permis B.",
+  },
+  {
+    q: "Est-ce que je peux utiliser mon CPF ?",
+    a: "Oui, si tu es demandeur d'emploi, tu peux financer ta formation Permis B (boîte auto ou manuelle) via le CPF. Le Permis Moto A2 n'est pas éligible CPF — il peut être financé via Alma.",
+  },
+  {
+    q: "Combien de temps pour obtenir mon permis ?",
+    a: "Cela dépend de ta progression et des disponibilités d'examen. En moyenne, nos élèves obtiennent leur permis en 3 à 5 mois. Nos moniteurs font tout pour t'y préparer rapidement.",
+  },
+  {
+    q: "Comment choisir entre boîte automatique et manuelle ?",
+    a: "Si tu veux conduire principalement en ville ou n'as pas de préférence, la boîte automatique est idéale. La boîte manuelle te donne plus de flexibilité sur tous types de véhicules. Notre conseiller t'aidera à choisir lors de l'appel.",
+  },
+];
+---
+<section class="faq">
+  <div class="container">
+    <span class="section-label">FAQ</span>
+    <h2 class="faq-title">Questions fréquentes</h2>
+
+    <div class="faq-list">
+      {faqs.map((item, i) => (
+        <details class="faq-item" open={i === 0}>
+          <summary class="faq-question">
+            <span>{item.q}</span>
+            <span class="faq-arrow">▼</span>
+          </summary>
+          <div class="faq-answer">
+            <p>{item.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    padding: 80px 0;
+    background: var(--white);
+  }
+
+  .faq-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--text);
+    margin-bottom: 48px;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 780px;
+  }
+
+  .faq-item {
+    border-top: 1px solid var(--border);
+  }
+
+  .faq-item:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 4px;
+    cursor: pointer;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-arrow {
+    color: var(--blue);
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  details[open] .faq-arrow {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 4px 20px;
+  }
+
+  .faq-answer p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 768px) {
+    .faq {
+      padding: 56px 0;
+    }
+
+    .faq-question {
+      font-size: 0.95rem;
+    }
+  }
+</style>

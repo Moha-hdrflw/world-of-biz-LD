@@ -1,0 +1,73 @@
+---
+const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
+---
+<nav class="nav">
+  <div class="container nav-inner">
+    <div class="nav-logo">
+      <span class="logo-fr">France</span>
+      <span class="logo-re">Réussite</span>
+    </div>
+    <a
+      href={CALENDLY}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-cta nav-cta"
+      onclick="fbq('track', 'Lead')"
+    >
+      Réserver mon appel gratuit
+    </a>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    padding: 14px 0;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .logo-fr {
+    color: var(--blue);
+  }
+
+  .logo-re {
+    color: var(--red);
+  }
+
+  .nav-cta {
+    font-size: 0.95rem;
+    padding: 11px 28px;
+  }
+
+  @media (max-width: 480px) {
+    .nav-cta {
+      font-size: 0.8rem;
+      padding: 10px 18px;
+    }
+
+    .nav-logo {
+      font-size: 1.25rem;
+    }
+  }
+</style>

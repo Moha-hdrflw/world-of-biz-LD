@@ -1,0 +1,101 @@
+---
+const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo">
+      <span class="logo-fr">France</span>
+      <span class="logo-re">Réussite</span>
+    </div>
+
+    <div class="footer-info">
+      <p>📍 10 Rue Mathis, 75019 Paris</p>
+      <p>
+        <a
+          href={CALENDLY}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-link"
+          onclick="fbq('track', 'Lead')"
+        >
+          Réserver un appel gratuit
+        </a>
+      </p>
+    </div>
+
+    <div class="footer-copy">
+      <p>© {year} France Réussite — Tous droits réservés</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--text);
+    padding: 40px 0;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  .logo-fr {
+    color: #6ba3e0;
+  }
+
+  .logo-re {
+    color: #e87d83;
+  }
+
+  .footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .footer-link {
+    color: #6ba3e0;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .footer-link:hover {
+    color: var(--white);
+  }
+
+  .footer-copy {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  @media (max-width: 768px) {
+    .footer-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-info {
+      align-items: center;
+    }
+  }
+</style>
