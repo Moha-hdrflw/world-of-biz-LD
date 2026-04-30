@@ -2,11 +2,8 @@
 const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
 ---
 <nav class="nav">
-  <div class="container nav-inner">
-    <div class="nav-logo">
-      <span class="logo-fr">France</span>
-      <span class="logo-re">Réussite</span>
-    </div>
+  <div class="nav-inner">
+    <img src="/logo-fr.png" alt="France Réussite" class="nav-logo" />
     <a
       href={CALENDLY}
       target="_blank"
@@ -24,50 +21,31 @@ const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--white);
-    border-bottom: 2px solid var(--border);
-    padding: 14px 0;
+    background: rgba(5, 20, 38, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(34,120,224,0.2);
+    padding: 10px 20px;
   }
 
   .nav-inner {
+    max-width: 680px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 12px;
   }
 
   .nav-logo {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    line-height: 1;
-  }
-
-  .logo-fr {
-    color: var(--blue);
-  }
-
-  .logo-re {
-    color: var(--red);
+    height: 44px;
+    width: auto;
+    object-fit: contain;
   }
 
   .nav-cta {
-    font-size: 0.95rem;
-    padding: 11px 28px;
-  }
-
-  @media (max-width: 480px) {
-    .nav-cta {
-      font-size: 0.8rem;
-      padding: 10px 18px;
-    }
-
-    .nav-logo {
-      font-size: 1.25rem;
-    }
+    display: inline-block;
+    width: auto;
+    font-size: 0.85rem;
+    padding: 10px 20px;
   }
 </style>

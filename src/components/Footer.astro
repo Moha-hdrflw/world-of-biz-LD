@@ -4,73 +4,51 @@ const year = new Date().getFullYear();
 ---
 <footer class="footer">
   <div class="container footer-inner">
-    <div class="footer-logo">
-      <span class="logo-fr">France</span>
-      <span class="logo-re">Réussite</span>
+    <div class="footer-brand">
+      <img src="/logo-fr.png" alt="France Réussite" class="footer-logo" />
+      <div>
+        <div class="footer-name">France Réussite</div>
+        <div class="footer-sub">Auto-École Paris 19</div>
+      </div>
     </div>
 
     <div class="footer-info">
       <p>📍 10 Rue Mathis, 75019 Paris</p>
-      <p>
-        <a
-          href={CALENDLY}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="footer-link"
-          onclick="fbq('track', 'Lead')"
-        >
-          Réserver un appel gratuit
-        </a>
-      </p>
+      <a href={CALENDLY} target="_blank" rel="noopener noreferrer" class="footer-link" onclick="fbq('track', 'Lead')">
+        Réserver un appel gratuit →
+      </a>
     </div>
 
-    <div class="footer-copy">
-      <p>© {year} France Réussite — Tous droits réservés</p>
-    </div>
+    <p class="footer-copy">© {year} France Réussite — Tous droits réservés</p>
   </div>
 </footer>
 
 <style>
   .footer {
-    background: var(--text);
+    background: #020d1c;
+    border-top: 1px solid rgba(34,120,224,0.2);
     padding: 40px 0;
-    color: rgba(255,255,255,0.7);
+    color: rgba(200,220,255,0.5);
   }
 
-  .footer-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
+  .footer-inner { display: flex; flex-direction: column; gap: 20px; }
 
-  .footer-logo {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
+  .footer-brand { display: flex; align-items: center; gap: 12px; }
+
+  .footer-logo { height: 40px; width: auto; object-fit: contain; }
+
+  .footer-name {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
+    font-size: 1.1rem;
     text-transform: uppercase;
-    font-size: 1.4rem;
+    color: var(--white);
     line-height: 1;
   }
 
-  .logo-fr {
-    color: #6ba3e0;
-  }
+  .footer-sub { font-size: 0.72rem; color: rgba(200,220,255,0.4); margin-top: 2px; }
 
-  .logo-re {
-    color: #e87d83;
-  }
-
-  .footer-info {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    font-size: 0.9rem;
-    text-align: center;
-  }
+  .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 0.87rem; }
 
   .footer-link {
     color: #6ba3e0;
@@ -79,23 +57,7 @@ const year = new Date().getFullYear();
     text-underline-offset: 3px;
   }
 
-  .footer-link:hover {
-    color: var(--white);
-  }
+  .footer-link:hover { color: var(--white); }
 
-  .footer-copy {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.4);
-  }
-
-  @media (max-width: 768px) {
-    .footer-inner {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .footer-info {
-      align-items: center;
-    }
-  }
+  .footer-copy { font-size: 0.76rem; color: rgba(200,220,255,0.25); }
 </style>

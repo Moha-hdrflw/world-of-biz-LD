@@ -1,249 +1,173 @@
 ---
 const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
-
 const formules = [
   {
     badge: "Le plus populaire",
-    icon: "🚗",
     name: "Boîte Automatique",
-    price: "799€",
+    price: "799€", monthly: null,
     highlight: true,
-    features: [
-      "13h de conduite dont 2h simulateur",
-      "Code de la route inclus",
-      "Moniteur dédié et bienveillant",
-      "Paiement 3x ou 4x sans frais via Alma",
-      "Éligible CPF pour demandeurs d'emploi",
-      "Date d'examen rapide",
-    ],
-    cpf: true,
+    features: ["13h de conduite dont 2h simulateur","Code de la route inclus","Dates d'examen rapides","Paiement 3x ou 4x sans frais via Alma","Éligible CPF pour demandeurs d'emploi","Accompagnement du début à la fin"],
     ctaLabel: "Je réserve — Boîte Auto →",
   },
   {
     badge: null,
-    icon: "🚙",
     name: "Boîte Manuelle",
-    price: "799€",
+    price: "799€", monthly: null,
     highlight: false,
-    features: [
-      "20h de conduite dont 3h simulateur",
-      "Code de la route inclus",
-      "Moniteur dédié et bienveillant",
-      "Paiement 3x ou 4x sans frais via Alma",
-      "Éligible CPF pour demandeurs d'emploi",
-      "Date d'examen rapide",
-    ],
-    cpf: true,
+    features: ["20h de conduite dont 3h simulateur","Code de la route inclus","Dates d'examen rapides","Paiement 3x ou 4x sans frais via Alma","Éligible CPF pour demandeurs d'emploi","Accompagnement du début à la fin"],
     ctaLabel: "Je réserve — Boîte Manuelle →",
   },
   {
     badge: null,
-    icon: "🏍️",
     name: "Permis Moto A2",
-    price: "750€",
+    price: "750€", monthly: null,
     highlight: false,
-    features: [
-      "Formation complète plateau & circulation",
-      "ETG (code) inclus",
-      "Moniteurs moto certifiés",
-      "Paiement en plusieurs fois via Alma",
-      "⚠️ Non éligible CPF",
-      "Date d'examen rapide",
-    ],
-    cpf: false,
+    features: ["Formation complète plateau & circulation","ETG (code) inclus","Moniteurs moto certifiés","Paiement 3x ou 4x sans frais via Alma","Date d'examen rapide"],
     ctaLabel: "Je réserve — Permis Moto →",
   },
 ];
 ---
 <section class="formules">
   <div class="container">
-    <span class="section-label">Nos formules</span>
-    <h2 class="formules-title">Choisis ta formule</h2>
-    <p class="formules-sub">Toutes nos formules incluent un suivi personnalisé par nos moniteurs certifiés.</p>
+    <span class="section-label">Nos offres</span>
+    <h2 class="formules-title">
+      Choisis ta <span class="accent">formule</span>
+    </h2>
 
     <div class="cards">
       {formules.map((f) => (
-        <div class={`card ${f.highlight ? 'card-highlight' : ''}`}>
+        <div class={`card ${f.highlight ? 'card-hi' : ''}`}>
           {f.badge && <div class="card-badge">{f.badge}</div>}
-          <div class="card-icon">{f.icon}</div>
-          <h3 class="card-name">{f.name}</h3>
-          <div class="card-price">{f.price}</div>
-          {f.cpf && (
-            <div class="cpf-tag">✅ Éligible CPF</div>
-          )}
-          <ul class="card-features">
+
+          <div class="card-header">
+            <h3 class="card-name">{f.name}</h3>
+            <div class="card-price">{f.price}</div>
+            {f.monthly && <p class="card-monthly">Paiement en 3x = <strong>{f.monthly}</strong></p>}
+          </div>
+
+          <ul class="feat-list">
             {f.features.map((feat) => (
-              <li>
-                <span class="feat-check">✓</span>
+              <li class="feat-item">
+                <span class="feat-check">✅</span>
                 <span>{feat}</span>
               </li>
             ))}
           </ul>
-          <a
-            href={CALENDLY}
-            target="_blank"
-            rel="noopener noreferrer"
-            class={`btn-cta card-cta ${f.highlight ? '' : 'btn-outline'}`}
-            onclick="fbq('track', 'Lead')"
-          >
+
+          <a href={CALENDLY} target="_blank" rel="noopener noreferrer" class="btn-cta card-btn" onclick="fbq('track', 'Lead')">
             {f.ctaLabel}
           </a>
         </div>
       ))}
     </div>
 
-    <p class="formules-note">
-      💳 Paiement sécurisé via <strong>Alma</strong> — 3x ou 4x sans frais sur les permis B.
-    </p>
+    <p class="formules-note">💳 Paiement sécurisé via <strong>Alma</strong> — disponible sur toutes nos formules</p>
   </div>
 </section>
 
 <style>
-  .formules {
-    padding: 80px 0;
-    background: var(--cream);
-  }
+  .formules { padding: 72px 0; background: var(--bg); }
 
   .formules-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: var(--text);
-    margin-bottom: 10px;
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
+    color: var(--white);
+    margin-bottom: 32px;
   }
 
-  .formules-sub {
-    color: #555;
-    font-size: 1rem;
-    margin-bottom: 48px;
+  .accent {
+    color: var(--blue);
+    text-shadow: 0 0 20px var(--blue-glow), 0 0 48px rgba(42,126,245,0.2);
   }
 
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    align-items: start;
-  }
+  .cards { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
 
   .card {
-    background: var(--white);
-    border: 2px solid var(--border);
-    padding: 32px 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow:
+      0 4px 24px rgba(0,0,0,0.2),
+      0 0 16px rgba(42,126,245,0.05);
+    border-radius: 8px;
+    overflow: hidden;
   }
 
-  .card-highlight {
-    border-color: var(--blue);
-    box-shadow: 0 4px 24px rgba(30, 95, 168, 0.12);
+  .card-hi {
+    border-color: rgba(42,126,245,0.5);
+    box-shadow:
+      0 4px 32px rgba(42,126,245,0.18),
+      0 0 0 2px rgba(42,126,245,0.15),
+      0 0 40px rgba(42,126,245,0.08);
   }
 
   .card-badge {
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
     background: var(--blue);
-    color: var(--white);
+    color: #fff;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 4px 16px;
-    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
-    white-space: nowrap;
+    letter-spacing: 0.1em;
+    padding: 7px 20px;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0% 100%);
+    display: inline-block;
+    box-shadow: 0 0 14px var(--blue-glow);
   }
 
-  .card-icon {
-    font-size: 2.2rem;
+  .card-header {
+    padding: 22px 22px 18px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
   }
 
   .card-name {
-    font-size: 1.4rem;
-    color: var(--text);
-    text-transform: uppercase;
+    font-size: 1.15rem;
+    color: var(--card-text);
+    margin-bottom: 8px;
   }
 
   .card-price {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
-    font-size: 2.8rem;
+    font-size: 3.8rem;
     color: var(--blue);
     line-height: 1;
+    margin-bottom: 4px;
+    text-shadow: 0 0 16px rgba(42,126,245,0.5), 0 0 40px rgba(42,126,245,0.2);
   }
 
-  .cpf-tag {
-    background: rgba(30, 95, 168, 0.08);
-    color: var(--blue);
-    font-size: 0.85rem;
-    font-weight: 700;
-    padding: 5px 12px;
-    display: inline-block;
-  }
+  .card-monthly { font-size: 0.85rem; color: var(--card-text-soft); }
+  .card-monthly strong { color: var(--card-text); }
 
-  .card-features {
-    list-style: none;
+  .feat-list { list-style: none; padding: 0 22px; }
+
+  .feat-item {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin: 4px 0;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 0;
+    font-size: 0.93rem;
+    color: var(--card-text);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
   }
 
-  .card-features li {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 0.92rem;
-    color: var(--text);
-    line-height: 1.5;
-  }
+  .feat-item:last-child { border-bottom: none; }
+  .feat-check { font-size: 1rem; flex-shrink: 0; }
 
-  .feat-check {
-    color: var(--blue);
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .card-cta {
-    margin-top: auto;
-    text-align: center;
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--blue) !important;
-    border: 2px solid var(--blue);
-  }
-
-  .btn-outline:hover {
-    background: var(--blue);
-    color: var(--white) !important;
+  .card-btn {
+    margin: 18px 22px 22px;
+    width: calc(100% - 44px);
+    font-size: 0.95rem;
+    padding: 16px;
   }
 
   .formules-note {
     text-align: center;
-    margin-top: 36px;
-    font-size: 0.92rem;
-    color: #666;
+    font-size: 0.88rem;
+    color: var(--text-soft);
+    padding: 14px;
+    background: rgba(42,126,245,0.06);
+    border: 1px solid var(--border);
+    border-radius: 6px;
   }
 
-  @media (max-width: 900px) {
-    .cards {
-      grid-template-columns: 1fr;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
-    .card-badge {
-      font-size: 0.75rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .formules {
-      padding: 56px 0;
-    }
-  }
+  .formules-note strong { color: var(--text); }
 </style>

@@ -1,29 +1,11 @@
 ---
 const faqs = [
-  {
-    q: "L'appel est vraiment gratuit et sans engagement ?",
-    a: "Oui, à 100%. Notre conseiller prend 10 minutes pour comprendre ta situation et t'expliquer les options. Aucune pression, aucun engagement. Tu décides après l'appel si tu souhaites t'inscrire.",
-  },
-  {
-    q: "Comment se passe l'inscription ?",
-    a: "Tout se fait en ligne depuis ton téléphone. Après l'appel, on t'envoie un lien sécurisé pour finaliser l'inscription et le paiement. Pas besoin de te déplacer.",
-  },
-  {
-    q: "Comment fonctionne le paiement en plusieurs fois ?",
-    a: "On passe par Alma, une solution de paiement sécurisée. Tu peux étaler le montant sur 3 ou 4 mensualités, sans frais supplémentaires. C'est disponible sur les formules Permis B.",
-  },
-  {
-    q: "Est-ce que je peux utiliser mon CPF ?",
-    a: "Oui, si tu es demandeur d'emploi, tu peux financer ta formation Permis B (boîte auto ou manuelle) via le CPF. Le Permis Moto A2 n'est pas éligible CPF — il peut être financé via Alma.",
-  },
-  {
-    q: "Combien de temps pour obtenir mon permis ?",
-    a: "Cela dépend de ta progression et des disponibilités d'examen. En moyenne, nos élèves obtiennent leur permis en 3 à 5 mois. Nos moniteurs font tout pour t'y préparer rapidement.",
-  },
-  {
-    q: "Comment choisir entre boîte automatique et manuelle ?",
-    a: "Si tu veux conduire principalement en ville ou n'as pas de préférence, la boîte automatique est idéale. La boîte manuelle te donne plus de flexibilité sur tous types de véhicules. Notre conseiller t'aidera à choisir lors de l'appel.",
-  },
+  { q: "L'appel est vraiment gratuit et sans engagement ?", a: "Oui, à 100%. Notre conseiller prend 10 minutes pour comprendre ta situation et t'expliquer les options. Aucune pression, aucun engagement. Tu décides après l'appel." },
+  { q: "Comment se passe l'inscription ?", a: "Tout se fait depuis ton téléphone après l'appel. On t'envoie un lien sécurisé pour finaliser l'inscription et le paiement. Pas besoin de te déplacer." },
+  { q: "Comment fonctionne le paiement en plusieurs fois ?", a: "Via Alma, solution de paiement sécurisée. Tu peux étaler sur 3 ou 4 mensualités sans frais, disponible sur les formules Permis B." },
+  { q: "Est-ce que je peux utiliser mon CPF ?", a: "Oui, si tu es demandeur d'emploi, tu peux financer ta formation Permis B via le CPF. Le Permis Moto A2 n'est pas éligible CPF — financement via Alma uniquement." },
+  { q: "Combien de temps pour obtenir mon permis ?", a: "En moyenne 3 à 5 mois. Nos moniteurs font tout pour t'y préparer rapidement et t'obtenir une date d'examen dans les meilleurs délais." },
+  { q: "Comment choisir entre boîte automatique et manuelle ?", a: "Si tu roules principalement en ville, la boîte auto est idéale. La boîte manuelle donne plus de flexibilité. Notre conseiller t'aidera lors de l'appel." },
 ];
 ---
 <section class="faq">
@@ -34,13 +16,11 @@ const faqs = [
     <div class="faq-list">
       {faqs.map((item, i) => (
         <details class="faq-item" open={i === 0}>
-          <summary class="faq-question">
+          <summary class="faq-q">
             <span>{item.q}</span>
-            <span class="faq-arrow">▼</span>
+            <span class="faq-icon">▼</span>
           </summary>
-          <div class="faq-answer">
-            <p>{item.a}</p>
-          </div>
+          <div class="faq-a"><p>{item.a}</p></div>
         </details>
       ))}
     </div>
@@ -48,81 +28,57 @@ const faqs = [
 </section>
 
 <style>
-  .faq {
-    padding: 80px 0;
-    background: var(--white);
-  }
+  .faq { padding: 72px 0; background: var(--bg-alt); }
 
   .faq-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: var(--text);
-    margin-bottom: 48px;
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
+    color: var(--white);
+    margin-bottom: 32px;
   }
 
-  .faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    max-width: 780px;
-  }
+  .faq-list { display: flex; flex-direction: column; gap: 10px; }
 
   .faq-item {
-    border-top: 1px solid var(--border);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow:
+      0 2px 16px rgba(0,0,0,0.15),
+      0 0 12px rgba(42,126,245,0.04);
+    border-radius: 8px;
+    overflow: hidden;
   }
 
-  .faq-item:last-child {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .faq-question {
+  .faq-q {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
-    padding: 20px 4px;
+    gap: 14px;
+    padding: 18px 20px;
     cursor: pointer;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    color: var(--text);
+    color: var(--card-text);
     list-style: none;
     user-select: none;
   }
 
-  .faq-question::-webkit-details-marker {
-    display: none;
-  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q::marker { display: none; content: ''; }
 
-  .faq-arrow {
-    color: var(--blue);
-    font-size: 0.75rem;
-    transition: transform 0.2s ease;
-    flex-shrink: 0;
-  }
+  .faq-icon { color: var(--blue); font-size: 0.7rem; flex-shrink: 0; transition: transform 0.2s; }
+  details[open] .faq-icon { transform: rotate(180deg); }
 
-  details[open] .faq-arrow {
-    transform: rotate(180deg);
+  .faq-a {
+    padding: 0 20px 18px;
+    border-top: 1px solid rgba(0,0,0,0.06);
   }
-
-  .faq-answer {
-    padding: 0 4px 20px;
-  }
-
-  .faq-answer p {
-    font-size: 0.95rem;
-    color: #555;
+  .faq-a p {
+    font-size: 0.92rem;
+    color: var(--card-text-soft);
     line-height: 1.65;
-  }
-
-  @media (max-width: 768px) {
-    .faq {
-      padding: 56px 0;
-    }
-
-    .faq-question {
-      font-size: 0.95rem;
-    }
+    padding-top: 14px;
   }
 </style>

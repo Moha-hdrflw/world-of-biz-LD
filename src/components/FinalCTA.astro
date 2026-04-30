@@ -1,16 +1,19 @@
 ---
 const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
 ---
-<section class="final-cta">
-  <div class="container final-inner">
+<section class="final">
+  <div class="final-glow-blue"></div>
+  <div class="final-glow-blue2"></div>
+
+  <div class="container final-content">
     <div class="final-badge">
       <span class="stars">★★★★★</span>
       <span>5/5 sur Google</span>
     </div>
 
     <h2 class="final-title">
-      Prêt(e) à décrocher<br />
-      <span class="title-accent">ton permis ?</span>
+      <span class="t-white">Prêt(e) à décrocher</span><br />
+      <span class="t-white">ton permis ?</span>
     </h2>
 
     <p class="final-desc">
@@ -18,102 +21,112 @@ const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
       Nos conseillers sont disponibles maintenant.
     </p>
 
-    <a
-      href={CALENDLY}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="btn-cta final-btn"
-      onclick="fbq('track', 'Lead')"
-    >
+    <a href={CALENDLY} target="_blank" rel="noopener noreferrer" class="btn-cta final-btn" onclick="fbq('track', 'Lead')">
       Je réserve mon appel gratuit →
     </a>
 
     <p class="final-trust">Gratuit · Sans engagement · Réponse rapide</p>
 
-    <div class="final-features">
-      <span>✓ Paiement 3x ou 4x sans frais</span>
-      <span>✓ Éligible CPF (Permis B)</span>
-      <span>✓ Moniteurs certifiés</span>
-      <span>✓ Paris 19ème</span>
+    <div class="final-checks">
+      <span>✅ Paiement 3x ou 4x sans frais</span>
+      <span>✅ Éligible CPF (Permis B)</span>
+      <span>✅ Moniteurs certifiés</span>
+      <span>✅ Paris 19ème</span>
     </div>
   </div>
 </section>
 
 <style>
-  .final-cta {
-    padding: 88px 0;
-    background: var(--cream);
-    border-top: 2px solid var(--blue);
+  .final {
+    position: relative;
+    padding: 80px 0;
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
     text-align: center;
+    overflow: hidden;
   }
 
-  .final-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+  .final-glow-blue {
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(42,126,245,0.1) 0%, transparent 70%);
+    pointer-events: none;
   }
+
+  .final-glow-blue2 {
+    position: absolute;
+    bottom: -80px; left: -60px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(42,126,245,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .final-content { position: relative; z-index: 1; }
 
   .final-badge {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 7px 16px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--card-text);
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
   }
+
+  .stars { color: #F4B942; }
 
   .final-title {
-    font-size: clamp(2.4rem, 7vw, 4.5rem);
-    color: var(--text);
+    font-size: clamp(2.6rem, 11vw, 4.5rem);
     line-height: 1.05;
+    margin-bottom: 18px;
   }
 
-  .title-accent {
+  .t-white {
+    color: var(--white);
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+  }
+
+  .t-blue {
     color: var(--blue);
+    text-shadow:
+      0 0 20px rgba(42,126,245,0.9),
+      0 0 60px rgba(42,126,245,0.45),
+      0 0 100px rgba(42,126,245,0.2);
   }
 
   .final-desc {
-    font-size: 1.05rem;
-    color: #555;
-    max-width: 520px;
+    font-size: 1rem;
+    color: var(--text-soft);
+    max-width: 460px;
+    margin: 0 auto 28px;
     line-height: 1.65;
   }
 
-  .final-btn {
-    font-size: 1.2rem;
-    padding: 18px 52px;
-  }
+  .final-btn { font-size: 1.1rem; padding: 20px 32px; margin-bottom: 14px; }
 
   .final-trust {
-    font-size: 0.85rem;
-    color: #888;
-    margin-top: -4px;
+    font-size: 0.78rem;
+    color: var(--text-soft);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
   }
 
-  .final-features {
+  .final-checks {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px 28px;
-    margin-top: 4px;
+    gap: 8px 20px;
   }
 
-  .final-features span {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  @media (max-width: 768px) {
-    .final-cta {
-      padding: 60px 0;
-    }
-
-    .final-btn {
-      font-size: 1rem;
-      padding: 15px 32px;
-      width: 100%;
-    }
-  }
+  .final-checks span { font-size: 0.85rem; font-weight: 600; color: var(--text-soft); }
 </style>

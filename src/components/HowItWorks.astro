@@ -1,133 +1,84 @@
 ---
 const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
-
 const steps = [
-  {
-    num: "01",
-    icon: "📅",
-    title: "Tu réserves ton appel",
-    desc: "Choisis un créneau qui te convient sur Calendly. C'est gratuit, sans engagement, et ça prend 2 minutes.",
-  },
-  {
-    num: "02",
-    icon: "📞",
-    title: "On t'appelle",
-    desc: "Un conseiller de France Réussite te rappelle. On répond à tes questions et on trouve ensemble la formule adaptée.",
-  },
-  {
-    num: "03",
-    icon: "✅",
-    title: "Tu t'inscris depuis ton téléphone",
-    desc: "Inscription complète en ligne, paiement sécurisé en 3x ou 4x sans frais. Tu démarres quand tu veux.",
-  },
+  { num: "01", icon: "📅", title: "Tu réserves un créneau", desc: "Choisis le jour et l'heure qui te convient. L'appel dure environ 10 minutes." },
+  { num: "02", icon: "📞", title: "Un conseiller t'appelle", desc: "Notre équipe est disponible 7j/7. Il répond à toutes tes questions sur la formation, les délais, le paiement." },
+  { num: "03", icon: "✅", title: "Tu t'inscris depuis ton téléphone", desc: "Si France Réussite correspond, l'inscription se fait directement. Simple et rapide." },
 ];
 ---
 <section class="hiw">
   <div class="container">
-    <span class="section-label">Comment ça se passe ?</span>
-    <h2 class="hiw-title">3 étapes pour avoir ton permis</h2>
+    <span class="section-label">Simple et rapide</span>
+    <h2 class="hiw-title">Comment ça<br/>se passe ?</h2>
 
     <div class="steps">
-      {steps.map((step, i) => (
-        <div class="step">
-          <div class="step-num">{step.num}</div>
-          <div class="step-icon">{step.icon}</div>
-          <h3 class="step-title">{step.title}</h3>
-          <p class="step-desc">{step.desc}</p>
-          {i < steps.length - 1 && <div class="step-arrow">→</div>}
+      {steps.map((s) => (
+        <div class="step-card">
+          <div class="step-top">
+            <span class="step-icon">{s.icon}</span>
+            <span class="step-num">{s.num}</span>
+          </div>
+          <h3 class="step-title">{s.title}</h3>
+          <p class="step-desc">{s.desc}</p>
         </div>
       ))}
     </div>
 
-    <div class="hiw-cta">
-      <a
-        href={CALENDLY}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-cta"
-        onclick="fbq('track', 'Lead')"
-      >
-        Je commence maintenant →
-      </a>
-    </div>
+    <a href={CALENDLY} target="_blank" rel="noopener noreferrer" class="btn-cta" onclick="fbq('track', 'Lead')">
+      Je réserve mon appel gratuit →
+    </a>
   </div>
 </section>
 
 <style>
-  .hiw {
-    padding: 80px 0;
-    background: var(--white);
-  }
+  .hiw { padding: 72px 0; background: var(--bg-alt); }
 
   .hiw-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: var(--text);
-    margin-bottom: 52px;
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
+    color: var(--white);
+    margin-bottom: 36px;
   }
 
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    position: relative;
-  }
+  .steps { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
 
-  .step {
+  .step-card {
     background: var(--card-bg);
-    border: 1px solid var(--border);
-    padding: 32px 28px;
-    text-align: center;
-    position: relative;
+    border: 1px solid var(--card-border);
+    box-shadow:
+      0 4px 20px rgba(0,0,0,0.25),
+      0 0 0 1px rgba(42,126,245,0.08),
+      0 0 20px rgba(42,126,245,0.06);
+    border-radius: 8px;
+    padding: 26px 22px;
   }
+
+  .step-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+
+  .step-icon { font-size: 2rem; line-height: 1; }
 
   .step-num {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
-    font-size: 3.5rem;
-    color: var(--blue);
-    opacity: 0.15;
+    font-size: 5rem;
+    color: #2a7ef5;
     line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .step-icon {
-    font-size: 2.5rem;
-    margin-bottom: 14px;
+    text-shadow:
+      0 0 20px rgba(42,126,245,0.9),
+      0 0 50px rgba(42,126,245,0.5),
+      0 0 90px rgba(42,126,245,0.25);
   }
 
   .step-title {
-    font-size: 1.2rem;
-    color: var(--text);
-    margin-bottom: 10px;
+    font-size: 1.08rem;
+    color: var(--card-text);
+    margin-bottom: 8px;
+    text-transform: uppercase;
   }
 
-  .step-desc {
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.6;
-  }
-
-  .step-arrow {
-    display: none;
-  }
-
-  .hiw-cta {
-    text-align: center;
-    margin-top: 44px;
-  }
-
-  @media (max-width: 768px) {
-    .hiw {
-      padding: 56px 0;
-    }
-
-    .steps {
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    .hiw-title {
-      margin-bottom: 36px;
-    }
-  }
+  .step-desc { font-size: 0.93rem; color: var(--card-text-soft); line-height: 1.65; }
 </style>
