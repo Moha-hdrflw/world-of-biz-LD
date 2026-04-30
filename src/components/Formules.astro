@@ -2,18 +2,20 @@
 const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
 const formules = [
   {
-    badge: "Le plus populaire",
+    badge: null,
     name: "Boîte Automatique",
     price: "799€", monthly: null,
-    highlight: true,
+    highlight: false,
+    limited: true,
     features: ["13h de conduite dont 2h simulateur","Code de la route inclus","Dates d'examen rapides","Paiement 3x ou 4x sans frais via Alma","Éligible CPF pour demandeurs d'emploi","Accompagnement du début à la fin"],
     ctaLabel: "Je réserve — Boîte Auto →",
   },
   {
-    badge: null,
+    badge: "Le plus populaire",
     name: "Boîte Manuelle",
     price: "799€", monthly: null,
-    highlight: false,
+    highlight: true,
+    limited: true,
     features: ["20h de conduite dont 3h simulateur","Code de la route inclus","Dates d'examen rapides","Paiement 3x ou 4x sans frais via Alma","Éligible CPF pour demandeurs d'emploi","Accompagnement du début à la fin"],
     ctaLabel: "Je réserve — Boîte Manuelle →",
   },
@@ -22,6 +24,7 @@ const formules = [
     name: "Permis Moto A2",
     price: "750€", monthly: null,
     highlight: false,
+    limited: false,
     features: ["Formation complète plateau & circulation","ETG (code) inclus","Moniteurs moto certifiés","Paiement 3x ou 4x sans frais via Alma","Date d'examen rapide"],
     ctaLabel: "Je réserve — Permis Moto →",
   },
@@ -38,6 +41,7 @@ const formules = [
       {formules.map((f) => (
         <div class={`card ${f.highlight ? 'card-hi' : ''}`}>
           {f.badge && <div class="card-badge">{f.badge}</div>}
+          {f.limited && <div class="card-limited">🔥 Offre &amp; places limitées !</div>}
 
           <div class="card-header">
             <h3 class="card-name">{f.name}</h3>
@@ -111,6 +115,17 @@ const formules = [
     clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0% 100%);
     display: inline-block;
     box-shadow: 0 0 14px var(--blue-glow);
+  }
+
+  .card-limited {
+    background: linear-gradient(90deg, rgba(230,57,70,0.12), rgba(230,57,70,0.06));
+    border-bottom: 1px solid rgba(230,57,70,0.25);
+    color: #c0392b;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 7px 22px;
   }
 
   .card-header {
