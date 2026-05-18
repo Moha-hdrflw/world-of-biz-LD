@@ -1,31 +1,31 @@
 ---
-const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
+const CALENDLY = "https://calendly.com/worldofbizaxion/15min?month=2026-05";
 const formules = [
   {
-    badge: null,
-    name: "Boîte Automatique",
-    price: "799€", monthly: null,
-    highlight: false,
-    limited: true,
-    features: ["13h de conduite dont 2h simulateur","Code de la route inclus","Dates d'examen rapides","Paiement 3x ou 4x sans frais via Alma","Éligible CPF pour demandeurs d'emploi","Accompagnement du début à la fin"],
-    ctaLabel: "Je réserve — Boîte Auto →",
-  },
-  {
     badge: "Le plus populaire",
-    name: "Boîte Manuelle",
-    price: "799€", monthly: null,
+    name: "Boîte Manuelle Express",
+    price: null, monthly: null,
     highlight: true,
     limited: true,
-    features: ["20h de conduite dont 3h simulateur","Code de la route inclus","Dates d'examen rapides","Paiement 3x ou 4x sans frais via Alma","Éligible CPF pour demandeurs d'emploi","Accompagnement du début à la fin"],
+    features: ["20h de conduite — permis en 1 mois","Code de la route inclus","Dates d'examen express — zéro attente","Paiement 3x ou 4x sans frais","Accompagnement du début à la fin"],
     ctaLabel: "Je réserve — Boîte Manuelle →",
   },
   {
     badge: null,
-    name: "Permis Moto A2",
-    price: "750€", monthly: null,
+    name: "Boîte Automatique Express",
+    price: null, monthly: null,
+    highlight: false,
+    limited: true,
+    features: ["13h de conduite — permis en 1 mois","Code de la route inclus","Dates d'examen express — zéro attente","Paiement 3x ou 4x sans frais","Accompagnement du début à la fin"],
+    ctaLabel: "Je réserve — Boîte Auto →",
+  },
+  {
+    badge: null,
+    name: "Moto A2 Express",
+    price: null, monthly: null,
     highlight: false,
     limited: false,
-    features: ["Formation complète plateau & circulation","ETG (code) inclus","Moniteurs moto certifiés","Paiement 3x ou 4x sans frais via Alma","Date d'examen rapide"],
+    features: ["20h de conduite — permis en 1 mois","ETG (code moto) inclus","Formation plateau & circulation accélérée","Moniteurs moto certifiés","Dates d'examen express — zéro attente","Paiement 3x ou 4x sans frais"],
     ctaLabel: "Je réserve — Permis Moto →",
   },
 ];
@@ -45,7 +45,7 @@ const formules = [
 
           <div class="card-header">
             <h3 class="card-name">{f.name}</h3>
-            <div class="card-price">{f.price}</div>
+            {f.price && <div class="card-price">{f.price}</div>}
             {f.monthly && <p class="card-monthly">Paiement en 3x = <strong>{f.monthly}</strong></p>}
           </div>
 
@@ -65,7 +65,7 @@ const formules = [
       ))}
     </div>
 
-    <p class="formules-note">💳 Paiement sécurisé via <strong>Alma</strong> — disponible sur toutes nos formules</p>
+    <p class="formules-note">💳 Paiement en plusieurs fois sans frais — disponible sur toutes nos formules</p>
   </div>
 </section>
 
@@ -86,26 +86,25 @@ const formules = [
   .cards { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
 
   .card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
+    background: #241F15;
+    border: 2px solid rgba(201,168,76,0.5);
     box-shadow:
-      0 4px 24px rgba(0,0,0,0.2),
-      0 0 16px rgba(42,126,245,0.05);
+      0 4px 32px rgba(201,168,76,0.2),
+      0 0 40px rgba(201,168,76,0.1);
     border-radius: 8px;
     overflow: hidden;
   }
 
   .card-hi {
-    border-color: rgba(42,126,245,0.5);
+    border-color: rgba(201,168,76,0.9);
     box-shadow:
-      0 4px 32px rgba(42,126,245,0.18),
-      0 0 0 2px rgba(42,126,245,0.15),
-      0 0 40px rgba(42,126,245,0.08);
+      0 4px 32px rgba(201,168,76,0.25),
+      0 0 40px rgba(201,168,76,0.1);
   }
 
   .card-badge {
-    background: var(--blue);
-    color: #fff;
+    background: linear-gradient(135deg, #C9A84C 0%, #E8C96A 50%, #C9A84C 100%);
+    color: #0A0A0A;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
     font-size: 0.78rem;
@@ -114,7 +113,7 @@ const formules = [
     padding: 7px 20px;
     clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0% 100%);
     display: inline-block;
-    box-shadow: 0 0 14px var(--blue-glow);
+    box-shadow: 0 0 14px rgba(201,168,76,0.5);
   }
 
   .card-limited {
@@ -134,7 +133,7 @@ const formules = [
   }
 
   .card-name {
-    font-size: 1.15rem;
+    font-size: 1.5rem;
     color: var(--card-text);
     margin-bottom: 8px;
   }
@@ -143,10 +142,10 @@ const formules = [
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
     font-size: 3.8rem;
-    color: var(--blue);
+    color: #ffffff;
     line-height: 1;
     margin-bottom: 4px;
-    text-shadow: 0 0 16px rgba(42,126,245,0.5), 0 0 40px rgba(42,126,245,0.2);
+    text-shadow: none;
   }
 
   .card-monthly { font-size: 0.85rem; color: var(--card-text-soft); }
@@ -179,7 +178,7 @@ const formules = [
     font-size: 0.88rem;
     color: var(--text-soft);
     padding: 14px;
-    background: rgba(42,126,245,0.06);
+    background: rgba(201,168,76,0.06);
     border: 1px solid var(--border);
     border-radius: 6px;
   }

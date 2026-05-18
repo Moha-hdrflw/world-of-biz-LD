@@ -1,25 +1,17 @@
 ---
-const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
+const CALENDLY = "https://calendly.com/worldofbizaxion/15min?month=2026-05";
 ---
 <section class="final">
   <div class="final-glow-blue"></div>
   <div class="final-glow-blue2"></div>
 
   <div class="container final-content">
-    <div class="final-badge">
-      <span class="stars">★★★★★</span>
-      <span>5/5 sur Google</span>
-    </div>
+    <img src="/logo-wob.webp" alt="World of Biz" class="final-logo" />
 
     <h2 class="final-title">
       <span class="t-white">Prêt(e) à décrocher</span><br />
       <span class="t-white">ton permis ?</span>
     </h2>
-
-    <p class="final-desc">
-      Un appel gratuit, 10 minutes, et tu sais exactement comment procéder.
-      Nos conseillers sont disponibles maintenant.
-    </p>
 
     <a href={CALENDLY} target="_blank" rel="noopener noreferrer" class="btn-cta final-btn" onclick="fbq('track', 'Lead')">
       Je réserve mon appel gratuit →
@@ -27,11 +19,14 @@ const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
 
     <p class="final-trust">Gratuit · Sans engagement · Réponse rapide</p>
 
-    <div class="final-checks">
-      <span>✅ Paiement 3x ou 4x sans frais</span>
-      <span>✅ Éligible CPF (Permis B)</span>
-      <span>✅ Moniteurs certifiés</span>
-      <span>✅ Paris 19ème</span>
+    <div class="final-agencies">
+      <p class="agencies-title">Nos agences</p>
+      <ul class="agencies-list">
+        <li><span class="agency-city">Pierrefitte-sur-Seine</span><span class="agency-addr">2 Rue Armand Brette, 93380 Pierrefitte-sur-Seine</span></li>
+        <li><span class="agency-city">Tonnerre</span><span class="agency-addr">10 place Charles de Gaulle, 89700 Tonnerre</span></li>
+        <li><span class="agency-city">Drancy</span><span class="agency-addr">215 avenue Jean Jaurès, 93700 Drancy</span></li>
+        <li><span class="agency-city">Les Pavillons-sous-Bois</span><span class="agency-addr">66 allée Émile Zola, 93320 Les Pavillons-sous-Bois</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -51,7 +46,7 @@ const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
     top: -120px; right: -80px;
     width: 420px; height: 420px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(42,126,245,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -60,28 +55,18 @@ const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
     bottom: -80px; left: -60px;
     width: 360px; height: 360px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(42,126,245,0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
 
   .final-content { position: relative; z-index: 1; }
 
-  .final-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    padding: 7px 16px;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--card-text);
-    margin-bottom: 24px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  .final-logo {
+    height: 120px;
+    width: auto;
+    object-fit: contain;
+    margin: 0 auto 28px;
   }
-
-  .stars { color: #F4B942; }
 
   .final-title {
     font-size: clamp(2.6rem, 11vw, 4.5rem);
@@ -118,15 +103,48 @@ const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
 
-  .final-checks {
+  .final-agencies {
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 8px;
+    padding: 20px 24px;
+    text-align: left;
+  }
+
+  .agencies-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .agencies-list {
+    list-style: none;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 20px;
+    flex-direction: column;
+    gap: 12px;
   }
 
-  .final-checks span { font-size: 0.85rem; font-weight: 600; color: var(--text-soft); }
+  .agencies-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .agency-city {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+
+  .agency-addr {
+    font-size: 0.82rem;
+    color: var(--text-soft);
+  }
 </style>

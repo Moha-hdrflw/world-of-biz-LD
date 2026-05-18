@@ -1,57 +1,56 @@
 ---
-const CALENDLY = "https://calendly.com/francereussiterdv/30min?month=2026-04";
+const CALENDLY = "https://calendly.com/worldofbizaxion/15min?month=2026-05";
 const year = new Date().getFullYear();
 ---
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <img src="/logo-fr.png" alt="France Réussite" class="footer-logo" />
+      <img src="/logo-wob.webp" alt="World of Biz" class="footer-logo" />
       <div>
-        <div class="footer-name">France Réussite</div>
-        <div class="footer-sub">Auto-École Paris 19</div>
+        <div class="footer-name">World of Biz</div>
+        <div class="footer-sub">École de Conduite</div>
       </div>
     </div>
 
     <div class="footer-info">
-      <p>📍 10 Rue Mathis, 75019 Paris</p>
       <a href={CALENDLY} target="_blank" rel="noopener noreferrer" class="footer-link" onclick="fbq('track', 'Lead')">
         Réserver un appel gratuit →
       </a>
     </div>
 
-    <p class="footer-copy">© {year} France Réussite — Tous droits réservés</p>
+    <p class="footer-copy">© {year} World of Biz — Tous droits réservés</p>
   </div>
 </footer>
 
 <style>
   .footer {
-    background: #020d1c;
-    border-top: 1px solid rgba(34,120,224,0.2);
+    background: #0A0A0A !important;
+    border-top: 1px solid rgba(201,168,76,0.2);
     padding: 40px 0;
-    color: rgba(200,220,255,0.5);
+    color: rgba(245,230,180,0.5);
   }
 
   .footer-inner { display: flex; flex-direction: column; gap: 20px; }
 
   .footer-brand { display: flex; align-items: center; gap: 12px; }
 
-  .footer-logo { height: 40px; width: auto; object-fit: contain; }
+  .footer-logo { height: 44px; width: auto; object-fit: contain; }
 
   .footer-name {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
     font-size: 1.1rem;
     text-transform: uppercase;
-    color: var(--white);
+    color: var(--gold);
     line-height: 1;
   }
 
-  .footer-sub { font-size: 0.72rem; color: rgba(200,220,255,0.4); margin-top: 2px; }
+  .footer-sub { font-size: 0.72rem; color: rgba(245,230,180,0.4); margin-top: 2px; }
 
   .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 0.87rem; }
 
   .footer-link {
-    color: #6ba3e0;
+    color: var(--gold);
     font-weight: 600;
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -59,5 +58,5 @@ const year = new Date().getFullYear();
 
   .footer-link:hover { color: var(--white); }
 
-  .footer-copy { font-size: 0.76rem; color: rgba(200,220,255,0.25); }
+  .footer-copy { font-size: 0.76rem; color: rgba(245,230,180,0.25); }
 </style>

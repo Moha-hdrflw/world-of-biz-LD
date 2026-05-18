@@ -1,33 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Fonds sombres */
-  --bg:          #051426;
-  --bg-alt:      #071c38;
+  /* Fonds noirs */
+  --bg:          #0A0A0A;
+  --bg-alt:      #111111;
 
-  /* Cards claires */
-  --card-bg:     #F8FAFC;
-  --card-text:   #0f1f38;
-  --card-text-soft: #4a5c7a;
-  --card-border: rgba(34,120,224,0.25);
+  /* Cards sombres */
+  --card-bg:     #1A1A1A;
+  --card-text:   #F5E6C8;
+  --card-text-soft: #B8965A;
+  --card-border: rgba(201,168,76,0.25);
 
-  /* Bleu électrique */
-  --blue:        #2a7ef5;
-  --blue-dark:   #1a62cc;
-  --blue-glow:   rgba(42,126,245,0.4);
+  /* Gold */
+  --gold:        #C9A84C;
+  --gold-dark:   #A8893D;
+  --gold-glow:   rgba(201,168,76,0.45);
 
-  /* Rouge — petites touches uniquement */
-  --red:         #E63946;
-  --red-glow:    rgba(230,57,70,0.45);
+  /* Aliases pour compatibilité */
+  --blue:        #C9A84C;
+  --blue-dark:   #A8893D;
+  --blue-glow:   rgba(201,168,76,0.4);
+  --red:         #C9A84C;
+  --red-glow:    rgba(201,168,76,0.45);
 
   /* Texte sur fond sombre */
   --white:       #ffffff;
-  --text:        #e8f0ff;
-  --text-soft:   rgba(200,220,255,0.6);
+  --text:        #F5E6C8;
+  --text-soft:   rgba(245,230,180,0.6);
 
-  /* Borders sur fond sombre */
-  --border:      rgba(42,126,245,0.18);
-  --border-hi:   rgba(42,126,245,0.45);
+  /* Borders dorées */
+  --border:      rgba(201,168,76,0.18);
+  --border-hi:   rgba(201,168,76,0.45);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -58,12 +61,12 @@ img { max-width: 100%; display: block; }
   padding: 0 20px;
 }
 
-/* ── CTA Button — parallélogramme rouge ── */
+/* ── CTA Button — parallélogramme gold ── */
 .btn-cta {
   display: block;
   width: 100%;
-  background: var(--red);
-  color: #ffffff !important;
+  background: linear-gradient(135deg, #C9A84C 0%, #E8C96A 50%, #C9A84C 100%);
+  color: #0A0A0A !important;
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 900;
   font-size: 1.1rem;
@@ -74,12 +77,12 @@ img { max-width: 100%; display: block; }
   clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
   cursor: pointer;
   border: none;
-  box-shadow: 0 4px 24px var(--red-glow), 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 24px rgba(201,168,76,0.5), 0 2px 8px rgba(0,0,0,0.4);
   transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
 }
 .btn-cta:hover {
-  background: #c0292f;
-  box-shadow: 0 6px 36px var(--red-glow);
+  background: linear-gradient(135deg, #A8893D 0%, #C9A84C 50%, #A8893D 100%);
+  box-shadow: 0 6px 36px rgba(201,168,76,0.7);
   transform: translateY(-1px);
 }
 
@@ -91,6 +94,6 @@ img { max-width: 100%; display: block; }
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--blue);
+  color: var(--gold);
   margin-bottom: 10px;
 }
